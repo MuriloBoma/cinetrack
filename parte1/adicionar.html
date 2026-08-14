@@ -6,54 +6,47 @@
     </head>
     <body>
         <fieldset>
-            <a href="index.html">-Voltar</a>
-
-            <br>
+            <a href="index.html">←Voltar</a>
 
             <h1>Adicionar filme</h1>
 
-            <br>
-
             <form id="form-filme">
-                <label>Titulo<br><input type="text"></label>
+                <label for="titulo">Titulo<br><input id="titulo" type="text"></label>
 
                 <br><br>
 
-                <label>Ano<br><input type="number" min="1888" max="2030"></label>
+                <label for="ano">Ano<br><input id="ano" type="number" min="1888" max="2030"></label>
 
                 <br><br>
 
-                <label>Gênero<br><input type="text"></label>
+                <label for="genero">Gênero<br><input id="genero" type="text"></label>
 
                 <br><br>
 
-                <label>URL do pôster<br><input type="url"></label>
+                <label for="url">URL do pôster<br><input id="url" type="url"></label>
 
                 <br><br>
                 
-                <label>Status
+                <label for="status">Status
                     <br>
-                    <select>
+                    <select id="status">
                         <option>Quero assistir</option>
                     </select>
                 </label>
 
                 <br><br>
 
-                <label>Nota (1 a 5)<br><input type="number" min="1" max="5"></label>
+                <label for="nota">Nota (1 a 5)<br><input id="nota" type="number" min="1" max="5"></label>
                 
                 <br><br>
 
-                <label>Comentário</label>
-                <br>
-                <textarea></textarea>
+                <label for="comentario">Comentário<br><textarea id="comentario"></textarea></label>
                 
                 <br><br>
 
                 <button type="button">Cancelar</button>
                 <button type="submit">Salvar</button>
             </form>
-            
         </fieldset>
     </body>
 </html>

@@ -5,34 +5,81 @@
         <title>CineTrack</title>
     </head>
     <body>
-        <fieldset>
+        <header>
             <h1>CineTrack</h1>
-            <p><strong>CineTrack</strong> é seu gerenciador pessoal de filmes: registre o que já viu, o que está vendo e o que quer ver.</p>
+            <input type="search" aria-label="Buscar filme"> 
+            <a href="adicionar.html"><button>+ Adicionar filme</button></a>
+        </header>
 
-            <a href="adicionar.html"><h3>+ Adicionar filme</h3></a>
+        <nav aria-label="Filtro de status">
+            <button class="ativo">Todos</button>
+            <button>Assistido</button>
+            <button>Assistindo</button>
+            <button>Quero assistir</button>
+        </nav>
 
-            <h2>Status possiveis</h2>
-            <ul>
-                <li>Assistido</li>
-                <li>Assistindo</li>
-                <li>Quero assistir</li>
-            </ul>
+        <main>
+            <section id="lista" aria-live="polite">
+                <article class="card">
+                    <img srcset="https://image.tmdb.org/t/p/w600_and_h900_face/9e3Dz7aCANy5aRUQF745IlNloJ1.jpg 7000w" alt="Poster de A Origem">
+                    <h2>A origem</h2>
+                    <p>2010 - Ficção cientifica</p>
+                    <p>Nota: ★★★★★</p>
+                    <span>assistido</span>
+                    <button>Editar</button>
+                    <button>Remover</button>
+                </article>
+                <article class="card">
+                    <img srcset="https://image.tmdb.org/t/p/w600_and_h900_face/igw938inb6Fy0YVcwIyxQ7Lu5FO.jpg 7000w" alt="Poster de Parasita">
+                    <h2>Parasita</h2>
+                    <p>2019 - Suspense</p>
+                    <p>Nota: ★★★★☆</p>
+                    <span>assistido</span>
+                    <button>Editar</button>
+                    <button>Remover</button>
+                </article>
+                <article class="card">
+                    <img srcset="https://www.themoviedb.org/t/p/w600_and_h900_face/imcOp1kJsCsAFCoOtY5OnPrFbAf.jpg 7000w" alt="Poster de O Auto da Compadecida">
+                    <h2>O Auto da Compadecida</h2>
+                    <p>2000 - Comédia</p>
+                    <p>Nota: ★★★★★</p>
+                    <span>assistido</span>
+                    <button>Editar</button>
+                    <button>Remover</button>
+                </article>
+                <article class="card">
+                    <img srcset="https://www.themoviedb.org/t/p/w600_and_h900_face/8LJJjLjAzAwXS40S5mx79PJ2jSs.jpg 7000w" alt="Poster de Duna: Parte Dois">
+                    <h2>Duna: Parte Dois</h2>
+                    <p>2024 - Ficção cientifica</p>
+                    <p>Nota: ★★★★☆</p>
+                    <span>assistido</span>
+                    <button>Editar</button>
+                    <button>Remover</button>
+                </article>
+                <article class="card">
+                    <img srcset="https://www.themoviedb.org/t/p/w600_and_h900_face/6ricSDD83BClJsFdGB6x7cM0MFQ.jpg 7000w" alt="Poster de Interestelar">
+                    <h2>Interestelar</h2>
+                    <p>2014 - Ficção cientifica</p>
+                    <p>Nota: ★★★★★</p>
+                    <span>assistido</span>
+                    <button>Editar</button>
+                    <button>Remover</button>
+                </article>
+                <article class="card">
+                    <img srcset="https://www.themoviedb.org/t/p/w600_and_h900_face/gfnXixcGC060QcG6JPxN6AMdVsq.jpg 7000w" alt="Poster de Cidade de Deus">
+                    <h2>Cidade de Deus</h2>
+                    <p>2002 - Drama</p>
+                    <p>Nota: ★★★★☆</p>
+                    <span>assistido</span>
+                    <button>Editar</button>
+                    <button>Remover</button>
+                </article>
+            </section>
+        </main>
 
-            <h2>Meus filmes favoritos</h2>
-            <ol>
-                <li>A Origem</li>
-                <li>Interestelar</li>
-                <li>Parasita</li>
-            </ol>
-
-            <h2>Sobre A Origem</h2>
-            <dl>
-                <dt>Diretor</dt> <dd>Christopher Nolan</dd>
-                <dt>Ano</dt> <dd>2010</dd>
-                <dt>Gênero</dt> <dd>Ficção cientifica</dd>
-            </dl>
-
-            <p>&copy; CineTrack</p>
-        </fieldset>
+        <footer>
+            <p>CineTrack - UEM</p>
+            <a href="adicionar.html">Adicionar Filme</a>
+        </footer>
     </body>
 </html>

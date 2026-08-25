@@ -1,4 +1,18 @@
+/*
+Fundo: #121212 (Preto/Cinza Quase Escuro) — Destacar os posters.
 
+Superfície/Cards: #1E1E1E (Cinza Escuro) — Para separar seções, listas e cartões de filmes do fundo.
+
+Destaque: #E50914 (Vermelho Cinema) — Botões principais e notas.
+
+(Regra 60-30-10):
+
+    60% (Fundo): No body do site para criar o ambiente escuro.
+
+    30% (Superfície): Nos cards de filmes, menu lateral e barra de navegação.
+
+    10% (Destaque): Apenas onde precisa chamar a atenção imediata (botão "Adicionar à Lista", estrelas de avaliação, badges).
+*/
 
 
 /*RESET*/
@@ -88,7 +102,7 @@ input[type="search"] {
     background-color: #ddd;
     height: 35px;
     padding: 3px;
-    width: min(300px, 100%);
+    width: 300px;
     font-size: large;
     border: 0;
     border-radius: 15px;

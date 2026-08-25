@@ -1,0 +1,97 @@
+
+
+
+/*RESET*/
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html{
+    font-size: 16px;
+}
+
+body{
+    font-family: system-ui, sans-serif;
+    line-height: 1.5;
+}
+
+img{
+    max-width: 100%;
+    display: block;
+    border-radius: 10px;
+}
+
+button{
+    font: inherit; 
+    cursor: pointer;
+    padding: 6px 10px;
+}
+
+/*Tags*/
+nav, main{
+    padding: 10px;
+}
+
+h1{
+    display: inline-block;
+}
+
+h2, span, p{
+    color: #FFFFFF;
+}
+
+form {
+    padding: 10px;
+}
+
+
+/*Classes*/
+.card{
+    margin: 10px 0;
+    padding: 16px;
+    border: 1px solid #333;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px #0005;
+    background-color: #1E1E1E;
+}
+
+.body-index{
+    background-color: #121212;
+}
+
+.header-index{
+    padding: 20px;
+    background-color:#121212;
+}
+
+.adicionar{
+    background-color: #E50914;
+    border: 0;
+    border-radius: 5px;
+}
+
+.cine{
+    color: #E50914;
+}
+
+.h1{
+    color: #ddd;
+}
+
+.nota{
+    color: #E50914;
+}
+
+input[type="search"] {
+    background-color: #ddd;
+    height: 35px;
+    padding: 3px;
+    width: min(300px, 100%);
+    font-size: large;
+    border: 0;
+    border-radius: 15px;
+    margin-left: 10px;
+    margin-right: 10px;
+}

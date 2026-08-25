@@ -3,12 +3,13 @@
     <head>
         <meta charset="UTF-8">
         <title>CineTrack</title>
+        <link rel="stylesheet" href="style.css">
     </head>
-    <body>
-        <header>
-            <h1>CineTrack</h1>
-            <input type="search" aria-label="Buscar filme"> 
-            <a href="adicionar.html"><button>+ Adicionar filme</button></a>
+    <body class="body-index">
+        <header class="header-index">
+            <h1 class = "h1"><span class = "cine">Cine</span>Track</h1>
+            <input type="search" aria-label="Buscar filme" placeholder="Buscar filme"> 
+            <a href="adicionar.html"><button class="adicionar">+ Adicionar filme</button></a>
         </header>
 
         <nav aria-label="Filtro de status">
@@ -21,55 +22,57 @@
         <main>
             <section id="lista" aria-live="polite">
                 <article class="card">
-                    <img srcset="https://image.tmdb.org/t/p/w600_and_h900_face/9e3Dz7aCANy5aRUQF745IlNloJ1.jpg 7000w" alt="Poster de A Origem">
+                    <img src="https://image.tmdb.org/t/p/w600_and_h900_face/9e3Dz7aCANy5aRUQF745IlNloJ1.jpg"
+                    srcset="https://image.tmdb.org/t/p/w600_and_h900_face/9e3Dz7aCANy5aRUQF745IlNloJ1.jpg 3000w"
+                    alt="Poster de A Origem">
                     <h2>A origem</h2>
                     <p>2010 - Ficção cientifica</p>
-                    <p>Nota: ★★★★★</p>
+                    <p>Nota: <span class="nota">★★★★★</span></p>
                     <span>assistido</span>
                     <button>Editar</button>
                     <button>Remover</button>
                 </article>
                 <article class="card">
-                    <img srcset="https://image.tmdb.org/t/p/w600_and_h900_face/igw938inb6Fy0YVcwIyxQ7Lu5FO.jpg 7000w" alt="Poster de Parasita">
+                    <img srcset="https://image.tmdb.org/t/p/w600_and_h900_face/igw938inb6Fy0YVcwIyxQ7Lu5FO.jpg 3000w" alt="Poster de Parasita">
                     <h2>Parasita</h2>
                     <p>2019 - Suspense</p>
-                    <p>Nota: ★★★★☆</p>
+                    <p>Nota: <span class="nota">★★★★☆</span></p>
                     <span>assistido</span>
                     <button>Editar</button>
                     <button>Remover</button>
                 </article>
                 <article class="card">
-                    <img srcset="https://www.themoviedb.org/t/p/w600_and_h900_face/imcOp1kJsCsAFCoOtY5OnPrFbAf.jpg 7000w" alt="Poster de O Auto da Compadecida">
+                    <img srcset="https://www.themoviedb.org/t/p/w600_and_h900_face/imcOp1kJsCsAFCoOtY5OnPrFbAf.jpg 3000w" alt="Poster de O Auto da Compadecida">
                     <h2>O Auto da Compadecida</h2>
                     <p>2000 - Comédia</p>
-                    <p>Nota: ★★★★★</p>
+                    <p>Nota: <span class="nota">★★★★★</span></p>
                     <span>assistido</span>
                     <button>Editar</button>
                     <button>Remover</button>
                 </article>
                 <article class="card">
-                    <img srcset="https://www.themoviedb.org/t/p/w600_and_h900_face/8LJJjLjAzAwXS40S5mx79PJ2jSs.jpg 7000w" alt="Poster de Duna: Parte Dois">
+                    <img srcset="https://www.themoviedb.org/t/p/w600_and_h900_face/8LJJjLjAzAwXS40S5mx79PJ2jSs.jpg 3000w" alt="Poster de Duna: Parte Dois">
                     <h2>Duna: Parte Dois</h2>
                     <p>2024 - Ficção cientifica</p>
-                    <p>Nota: ★★★★☆</p>
+                    <p>Nota: <span class="nota">★★★★☆</span></p>
                     <span>assistido</span>
                     <button>Editar</button>
                     <button>Remover</button>
                 </article>
                 <article class="card">
-                    <img srcset="https://www.themoviedb.org/t/p/w600_and_h900_face/6ricSDD83BClJsFdGB6x7cM0MFQ.jpg 7000w" alt="Poster de Interestelar">
+                    <img srcset="https://www.themoviedb.org/t/p/w600_and_h900_face/6ricSDD83BClJsFdGB6x7cM0MFQ.jpg 3000w" alt="Poster de Interestelar">
                     <h2>Interestelar</h2>
                     <p>2014 - Ficção cientifica</p>
-                    <p>Nota: ★★★★★</p>
+                    <p>Nota: <span class="nota">★★★★★</span></p>
                     <span>assistido</span>
                     <button>Editar</button>
                     <button>Remover</button>
                 </article>
                 <article class="card">
-                    <img srcset="https://www.themoviedb.org/t/p/w600_and_h900_face/gfnXixcGC060QcG6JPxN6AMdVsq.jpg 7000w" alt="Poster de Cidade de Deus">
+                    <img srcset="https://www.themoviedb.org/t/p/w600_and_h900_face/gfnXixcGC060QcG6JPxN6AMdVsq.jpg 3000w" alt="Poster de Cidade de Deus">
                     <h2>Cidade de Deus</h2>
                     <p>2002 - Drama</p>
-                    <p>Nota: ★★★★☆</p>
+                    <p>Nota: <span class="nota">★★★★☆</span></p>
                     <span>assistido</span>
                     <button>Editar</button>
                     <button>Remover</button>

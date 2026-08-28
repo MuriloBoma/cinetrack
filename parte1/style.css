@@ -48,10 +48,6 @@ nav, main{
     padding: 10px;
 }
 
-h1{
-    display: inline-block;
-}
-
 h2, span, p{
     color: #FFFFFF;
 }
@@ -60,22 +56,47 @@ form {
     padding: 10px;
 }
 
+nav{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    padding: 12px 24px;
+}
+
+nav button{
+    padding: 2px 7px ;
+    border: 1px  solid #fff;
+    border-radius: 999px;
+}
+
+nav button.ativo{
+    background-color: #E50914;
+    color: #fff;
+}
 
 /*Classes*/
 .card{
+    display: flex;
     margin: 10px 0;
     padding: 16px;
     border: 1px solid #333;
     border-radius: 8px;
     box-shadow: 0 2px 6px #0005;
     background-color: #1E1E1E;
+    flex-direction: column;
+    gap: 6px;
+    width: 400px;
 }
 
 .body-index{
     background-color: #121212;
 }
 
-.header-index{
+header{
+    display: flex;
+    justify-content:center;
+    gap: 16px;
+    flex-wrap: wrap;
     padding: 20px;
     background-color:#121212;
 }
@@ -90,22 +111,41 @@ form {
     color: #E50914;
 }
 
-.h1{
+header h1{
     color: #ddd;
+    flex: 0, 0, auto;
 }
 
 .nota{
     color: #E50914;
 }
 
-input[type="search"] {
+header input{
     background-color: #ddd;
     height: 35px;
     padding: 3px;
-    width: 300px;
     font-size: large;
     border: 0;
     border-radius: 15px;
     margin-left: 10px;
     margin-right: 10px;
+    flex: 1 1 240px;
+}
+
+#lista{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    padding: 0 10px;
+}
+
+.card .acoes{
+    margin-top: auto;
+    display: flex;
+    gap: 8px;
+    width: 100%;
+}
+
+.acoes button{
+    width: 100%;
 }

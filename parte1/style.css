@@ -4,14 +4,6 @@ Fundo: #121212 (Preto/Cinza Quase Escuro) — Destacar os posters.
 Superfície/Cards: #1E1E1E (Cinza Escuro) — Para separar seções, listas e cartões de filmes do fundo.
 
 Destaque: #E50914 (Vermelho Cinema) — Botões principais e notas.
-
-(Regra 60-30-10):
-
-    60% (Fundo): No body do site para criar o ambiente escuro.
-
-    30% (Superfície): Nos cards de filmes, menu lateral e barra de navegação.
-
-    10% (Destaque): Apenas onde precisa chamar a atenção imediata (botão "Adicionar à Lista", estrelas de avaliação, badges).
 */
 
 
@@ -20,6 +12,7 @@ Destaque: #E50914 (Vermelho Cinema) — Botões principais e notas.
     box-sizing: border-box;
     margin: 0;
     padding: 0;
+    color: #fff;
 }
 
 html{
@@ -31,12 +24,6 @@ body{
     line-height: 1.5;
 }
 
-img{
-    max-width: 100%;
-    display: block;
-    border-radius: 10px;
-}
-
 button{
     font: inherit; 
     cursor: pointer;
@@ -44,14 +31,6 @@ button{
 }
 
 /*Tags*/
-nav, main{
-    padding: 10px;
-}
-
-h2, span, p{
-    color: #FFFFFF;
-}
-
 form {
     padding: 10px;
 }
@@ -67,11 +46,13 @@ nav button{
     padding: 2px 7px ;
     border: 1px  solid #fff;
     border-radius: 999px;
+    color:#000;
 }
 
 nav button.ativo{
     background-color: #E50914;
-    color: #fff;
+    border: 1px solid #fff;
+    color: #fff
 }
 
 /*Classes*/
@@ -85,10 +66,9 @@ nav button.ativo{
     background-color: #1E1E1E;
     flex-direction: column;
     gap: 6px;
-    width: 400px;
 }
 
-.body-index{
+body{
     background-color: #121212;
 }
 
@@ -105,15 +85,18 @@ header{
     background-color: #E50914;
     border: 0;
     border-radius: 5px;
+    margin: 15px 0;
 }
 
 .cine{
     color: #E50914;
 }
 
+
 header h1{
-    color: #ddd;
-    flex: 0, 0, auto;
+    flex: 0 0 auto;
+    margin: auto 0;
+    width: 100%;
 }
 
 .nota{
@@ -122,21 +105,22 @@ header h1{
 
 header input{
     background-color: #ddd;
-    height: 35px;
-    padding: 3px;
-    font-size: large;
     border: 0;
     border-radius: 15px;
-    margin-left: 10px;
-    margin-right: 10px;
+    height: 40px;
+    margin: 14px 0;
+    padding: 10px;
     flex: 1 1 240px;
+    color: #000;
 }
 
 #lista{
-    display: flex;
-    flex-wrap: wrap;
-    gap: 6px;
-    padding: 0 10px;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 16px;
+    padding: 10px;
+    width: 100%;
+    margin: 0 auto;
 }
 
 .card .acoes{
@@ -146,6 +130,40 @@ header input{
     width: 100%;
 }
 
+.card img{
+    width: 100%;
+    aspect-ratio: 2/3;
+    object-fit: cover;
+    border-radius: 6px;
+    
+}
+
 .acoes button{
     width: 100%;
+    color: #000;
+}
+
+.status{
+    background-color: #ddd;
+    border-radius: 999px;
+    width: 30%;
+    padding: 0 20px;
+    color: #000;
+}
+
+@media (min-width: 768px) {
+    #lista {
+        grid-template-columns: repeat(auto-fill, minmax(350px, 2fr));
+    }
+    header h1{
+        width: auto;
+    }
+}
+
+@media (min-width: 1280px) {
+    #lista {
+        grid-template-columns: repeat(auto-fill, minmax(400px, 3fr));
+        max-width: 1600px;
+        margin: 0 auto;
+    }
 }

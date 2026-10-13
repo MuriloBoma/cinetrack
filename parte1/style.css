@@ -6,6 +6,22 @@ Superfície/Cards: #1E1E1E (Cinza Escuro) — Para separar seções, listas e ca
 Destaque: #E50914 (Vermelho Cinema) — Botões principais e notas.
 */
 
+:root{
+    --cor-fundo: #fff;
+    --cor-superfice: #aaa;
+    --cor-destaque: #e50914;
+    --cor-texto: #000;
+    --raio: 8px;
+    --espaco: 16px;
+
+}
+
+@media (prefers-color-scheme: dark){
+    :root{
+        --cor-fundo: #121212;
+        --cor-superfice: #1e1e1e;
+    }
+}
 
 /*RESET*/
 *{
@@ -28,6 +44,11 @@ button{
     font: inherit; 
     cursor: pointer;
     padding: 6px 10px;
+    transition: background 200ms ease, transform 150ms;
+}
+
+button:hover{
+    transform: scale(1.10);
 }
 
 /*Tags*/
@@ -50,26 +71,24 @@ nav button{
 }
 
 nav button.ativo{
-    background-color: #E50914;
+    background-color: var(--cor-destaque);
     border: 1px solid #fff;
     color: #fff
 }
 
 /*Classes*/
 .card{
-    display: flex;
     margin: 10px 0;
-    padding: 16px;
-    border: 1px solid #333;
-    border-radius: 8px;
+    padding: var(--espaco);
+    border-radius: var(--raio);
     box-shadow: 0 2px 6px #0005;
-    background-color: #1E1E1E;
-    flex-direction: column;
+    background-color: var(--cor-superfice);
     gap: 6px;
 }
 
 body{
-    background-color: #121212;
+    background-color: var(--cor-fundo);
+    color: var(--cor-texto)
 }
 
 header{
@@ -77,19 +96,27 @@ header{
     justify-content:center;
     gap: 16px;
     flex-wrap: wrap;
-    padding: 20px;
+    padding: var(--espaco);
     background-color:#121212;
 }
 
+header button{
+    color: #fff
+}
+
+header .sla{
+    display: none;
+}
+
 .adicionar{
-    background-color: #E50914;
+    background-color: var(--cor-destaque);
     border: 0;
-    border-radius: 5px;
+    border-radius: var(--raio);
     margin: 15px 0;
 }
 
 .cine{
-    color: #E50914;
+    color: var(--cor-destaque);
 }
 
 
@@ -100,16 +127,16 @@ header h1{
 }
 
 .nota{
-    color: #E50914;
+    color: var(--cor-destaque);
 }
 
 header input{
     background-color: #ddd;
     border: 0;
-    border-radius: 15px;
+    border-radius: var(--raio);
     height: 40px;
     margin: 14px 0;
-    padding: 10px;
+    padding: var(--espaco);
     flex: 1 1 240px;
     color: #000;
 }
@@ -118,7 +145,7 @@ header input{
     display: grid;
     grid-template-columns: 1fr;
     gap: 16px;
-    padding: 10px;
+    padding: var(--espaco);
     width: 100%;
     margin: 0 auto;
 }
@@ -126,6 +153,7 @@ header input{
 .card .acoes{
     margin-top: auto;
     display: flex;
+    justify-content: space-between;
     gap: 8px;
     width: 100%;
 }
@@ -134,21 +162,20 @@ header input{
     width: 100%;
     aspect-ratio: 2/3;
     object-fit: cover;
-    border-radius: 6px;
+    border-radius: var(--raio);
     
 }
 
 .acoes button{
-    width: 100%;
+    width: 48%;
     color: #000;
 }
 
 .status{
-    background-color: #ddd;
-    border-radius: 999px;
-    width: 30%;
-    padding: 0 20px;
+    border-radius: var(--raio);
+    background-color: green;
     color: #000;
+    padding-inline: 10px;
 }
 
 @media (min-width: 768px) {
@@ -158,12 +185,51 @@ header input{
     header h1{
         width: auto;
     }
+    header .sla{
+        display: initial;
+    }
 }
 
 @media (min-width: 1280px) {
     #lista {
-        grid-template-columns: repeat(auto-fill, minmax(400px, 3fr));
-        max-width: 1600px;
+        grid-template-columns: repeat(auto-fill, minmax(450px, 3fr));
         margin: 0 auto;
     }
+    h1{
+        font-size: clamp(1.2rem, 1rem + 2.5vw, 2.5rem);
+    }
+}
+
+@keyframes aparecer{
+    from{
+        opacity: 0;
+        transform: translateX(8px);
+    }
+    to{
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+#modal {
+    /*position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 50;*/
+}
+
+.modal-conteudo{
+    animation: aparecer 200ms ease;
+}
+
+#form-filme{
+    width: 300px;
+    background-color: #fff;
+    color: #000;
+}
+#form-filme, label, button, select, option, input{
+    color: #000;
 }

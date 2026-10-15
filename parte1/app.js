@@ -8,7 +8,7 @@ const filmesIniciais = [
     genero: "Ficção Cientifica",
     poster: "https://image.tmdb.org/t/p/w600_and_h900_face/9e3Dz7aCANy5aRUQF745IlNloJ1.jpg",
     nota: 5,
-    status: "Assistido"
+    status: "assistido"
     },
     {
     id: 2,
@@ -17,7 +17,7 @@ const filmesIniciais = [
     genero: "Suspense",
     poster: "https://image.tmdb.org/t/p/w600_and_h900_face/igw938inb6Fy0YVcwIyxQ7Lu5FO.jpg",
     nota: 4,
-    status: "Assistido"
+    status: "assistido"
     },
     {
     id: 3,
@@ -26,7 +26,7 @@ const filmesIniciais = [
     genero: "Comédia",
     poster: "https://www.themoviedb.org/t/p/w600_and_h900_face/imcOp1kJsCsAFCoOtY5OnPrFbAf.jpg",
     nota: 5,
-    status: "Assistido"
+    status: "assistido"
     },
     {
     id: 4,
@@ -35,7 +35,7 @@ const filmesIniciais = [
     genero: "Ficção Cientifica",
     poster: "https://www.themoviedb.org/t/p/w600_and_h900_face/8LJJjLjAzAwXS40S5mx79PJ2jSs.jpg",
     nota: 4,
-    status: "Assistindo"
+    status: "assistindo"
     },
     {
     id: 5,
@@ -44,7 +44,7 @@ const filmesIniciais = [
     genero: "Ficção Cientifica",
     poster: "https://www.themoviedb.org/t/p/w600_and_h900_face/6ricSDD83BClJsFdGB6x7cM0MFQ.jpg",
     nota: 4,
-    status: "Quero Assistir"
+    status: "quero"
     },
     {
     id: 6,
@@ -53,15 +53,18 @@ const filmesIniciais = [
     genero: "Drama",
     poster: "https://www.themoviedb.org/t/p/w600_and_h900_face/gfnXixcGC060QcG6JPxN6AMdVsq.jpg",
     nota: 4,
-    status: "Quero Assistir"
+    status: "quero"
     }
 ];
 
+let filmes = [...filmesIniciais];
+
+const nav = document.querySelector("nav");
 
 const coresStatus = {
-    'Assistido': '#28a745',
-    'Quero Assistir': '#ffc107',
-    'Assistindo': '#3ebdf8'
+    'assistido': '#28a745',
+    'quero': '#ffc107',
+    'assistindo': '#3ebdf8'
 };
 
 function rotuloStatus(status){
@@ -102,11 +105,30 @@ function renderizarCards(filmes) {
             </span>
 
             <div class="acoes">
-                <button>Editar</button>
-                <button>Remover</button>
+                <button class="btn-editar">Editar</button>
+                <button class="btn-remover">Remover</button>
             </div>
         </article>`).join("");
     lista.innerHTML = cards;
 }
+
+lista.addEventListener("click", (e) => {
+    const botao = e.target.closest(".btn-remover");
+    if (!botao) return;
+    if (!confirm("Remover este filme?")) return;
+    const card = botao.closest(".card");
+    const id = Number(card.dataset.id);
+    filmes = filmes.filter((f) => f.id !== id);
+    renderizarCards(filmes);
+});
+
+nav.addEventListener("click", (e) => {
+    const botao = e.target.closest("button");
+    if (!botao) return;
+    nav.querySelector(".ativo").classList.remove("ativo");
+    botao.classList.add("ativo");
+    const status = botao.dataset.status;
+    renderizarCards(filmes.filter((f) => status === "todos" || f.status === status));
+});
 
 document.querySelector("footer").innerHTML = `<small>CineTrack © 2026 · ${TOTAL} filmes cadastrados.</small>`;

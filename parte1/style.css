@@ -173,7 +173,6 @@ header input{
 
 .status{
     border-radius: var(--raio);
-    background-color: green;
     color: #000;
     padding-inline: 10px;
 }

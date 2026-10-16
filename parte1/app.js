@@ -1,4 +1,5 @@
 const TOTAL = 6;
+const CHAVE = 'cinetrack:filmes';
 
 const filmesIniciais = [
     {
@@ -57,7 +58,7 @@ const filmesIniciais = [
     }
 ];
 
-let filmes = [...filmesIniciais];
+let filmes = carregar();
 
 const nav = document.querySelector("nav");
 
@@ -127,7 +128,9 @@ function criarCard(f) {
 
 function renderizarCards(filmes) {
     const frag = document.createDocumentFragment();
+
     filmes.forEach((f) => frag.appendChild(criarCard(f)));
+
     lista.replaceChildren(frag);
 }
 
@@ -135,24 +138,30 @@ lista.addEventListener("click", (event) => {
     const botao = event.target.closest(".btn-remover");
     if (!botao) return;
     if (!confirm("Remover este filme?")) return;
+
     const card = botao.closest(".card");
     const id = Number(card.dataset.id);
+
     filmes = filmes.filter((f) => f.id !== id);
-    renderizarCards(filmes);
+    atualizar();
 });
 
 nav.addEventListener("click", (event) => {
     const botao = event.target.closest("button");
     if (!botao) return;
+
     nav.querySelector(".ativo").classList.remove("ativo");
     botao.classList.add("ativo");
-    const status = botao.dataset.status;
-    renderizarCards(filmes.filter((f) => status === "todos" || f.status === status));
+
+    statusAtual = botao.dataset.status;
+    atualizar();
 });
 
 let editandoId = null;
+
 const modal = document.querySelector("#modal");
 const form = document.querySelector("#form-filme");
+
 const abrir = () => modal.style.display = "flex";
 const fechar = () => modal.style.display = "none";
 
@@ -186,7 +195,7 @@ form.addEventListener("submit", (event) => {
         ];
     }
 
-    renderizarCards(filmes);
+    atualizar();
     fechar();
 });
 
@@ -218,6 +227,65 @@ lista.addEventListener('click'  , (event) => {
 });
 
 const gerarId = (lista) => Math.max(0, ...lista.map((f) => f.id)) + 1;
+
+let termoAtual = "";
+let statusAtual = "todos";
+
+function aplicarFiltros(lista, opcoes) {
+    const termo = opcoes.termo.toLowerCase();
+    return lista
+        .filter((f) => f.titulo.toLowerCase().includes(termo))
+        .filter((f) => opcoes.status === "todos" || f.status === opcoes.status);
+}
+
+function atualizar() {
+    const visiveis = aplicarFiltros(filmes, { termo: termoAtual, status: statusAtual });
+    renderizarCards(visiveis);
+}
+
+function debounce(fn, ms = 300) {
+    let timer;
+    return (...args) => {
+        clearTimeout(timer);
+        timer = setTimeout(() => fn(...args), ms);
+    };
+}
+
+const busca = document.querySelector("header input");
+
+const aoDigitar = (e) => {
+    termoAtual = e.target.value;
+    atualizar();
+};
+
+busca.addEventListener("input", debounce(aoDigitar, 300));
+
+const salvar = () => {
+  localStorage.setItem(CHAVE, JSON.stringify(filmes));
+};
+
+function carregar() {
+  const txt = localStorage.getItem(CHAVE);
+  return txt ? JSON.parse(txt) : [...filmesIniciais];
+}
+
+function adicionarFilme(novoFilme) {
+  filmes = [...filmes, novoFilme];
+  salvar();
+  atualizar();
+}
+
+function editarFilme(id, dadosAtualizados) {
+  filmes = filmes.map((f) => (f.id === id ? { ...f, ...dadosAtualizados } : f));
+  salvar();
+  atualizar();
+}
+
+function removerFilme(id) {
+  filmes = filmes.filter((f) => f.id !== id);
+  salvar();
+  atualizar();
+}
 
 document.querySelector('#form-filme button[type="button"]').addEventListener("click", fechar);
 

@@ -9,7 +9,7 @@
         <header>
             <h1><span class = "cine">Cine</span>Track</h1>
             <input type="search" aria-label="Buscar filme" placeholder="Buscar filme"> 
-            <a href="adicionar.html"><button class="adicionar">+ <span class="sla">Adicionar</span></button></a>
+            <a><button class="adicionar">+ <span class="sla">Adicionar</span></button></a>
         </header>
 
         <nav aria-label="Filtro de status">
@@ -24,46 +24,46 @@
             </section>
         </main>
 
-        <div id="modal" hidden>
-            <div class="model-conteudo">
-                <form id="form-filme">
-                    <label for="titulo">Titulo<br><input id="titulo" type="text"></label>
+        <div id="modal" style="display: none;">
+            <form id="form-filme">
+                <label for="titulo">Titulo<br><input id="titulo" type="text"></label>
 
-                    <br><br>
+                <br><br>
 
-                    <label for="ano">Ano<br><input id="ano" type="number" min="1888" max="2030"></label>
+                <label for="ano">Ano<br><input id="ano" type="number" min="1888" max="2030"></label>
 
-                    <br><br>
+                <br><br>
 
-                    <label for="genero">Gênero<br><input id="genero" type="text"></label>
+                <label for="genero">Gênero<br><input id="genero" type="text"></label>
 
-                    <br><br>
+                <br><br>
 
-                    <label for="url">URL do pôster<br><input id="url" type="url"></label>
+                <label for="url">URL do pôster<br><input id="url" type="url" name="poster"></label>
 
-                    <br><br>
-                    
-                    <label for="status">Status
-                        <br>
-                        <select id="status">
-                            <option>Quero assistir</option>
-                        </select>
-                    </label>
+                <br><br>
+                
+                <label for="status">Status
+                    <br>
+                    <select id="status">
+                        <option>assistido</option>
+                        <option>assistindo</option>
+                        <option>quero</option>
+                    </select>
+                </label>
 
-                    <br><br>
+                <br><br>
 
-                    <label for="nota">Nota (1 a 5)<br><input id="nota" type="number" min="1" max="5"></label>
-                    
-                    <br><br>
+                <label for="nota">Nota (1 a 5)<br><input id="nota" type="number" min="1" max="5"></label>
+                
+                <br><br>
 
-                    <label for="comentario">Comentário<br><textarea id="comentario"></textarea></label>
-                    
-                    <br><br>
+                <label for="comentario">Comentário<br><textarea id="comentario"></textarea></label>
+                
+                <br><br>
 
-                    <button type="button">Cancelar</button>
-                    <button type="submit">Salvar</button>
-                </form>
-            </div>
+                <button type="button">Cancelar</button>
+                <button type="submit">Salvar</button>
+            </form>
         </div>
         
         <footer>
